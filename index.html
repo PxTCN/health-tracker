@@ -1,43 +1,26 @@
 <!DOCTYPE html>
-<html lang="th">
-<head>
-<meta charset="utf-8">
+<html lang="th"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Health & Wellness Tracker</title>
 <style>
 :root{--bg:#f2f8ff;--card:#fff;--tx:#0f2a43;--mu:#5b7690;--bd:#d3e5f7;--ac:#2f80ed;--oa:#fff;--r:#EF4444;--y:#FACC15;--g:#22C55E;--n:#E5E7EB;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 @media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0e1a28;--card:#152537;--tx:#e6f0fa;--mu:#8fa8c0;--bd:#24384d;--ac:#5aa9ff;--oa:#08203a;--n:#2a3b4d;color-scheme:dark}}
 :root[data-theme=dark]{--bg:#0e1a28;--card:#152537;--tx:#e6f0fa;--mu:#8fa8c0;--bd:#24384d;--ac:#5aa9ff;--oa:#08203a;--n:#2a3b4d;color-scheme:dark}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.5 system-ui,"Noto Sans Thai",sans-serif}
-#app{max-width:720px;margin:auto;padding:12px}
-h2{margin:.6em 0 .3em;font-size:1.15em}
-h3{margin:.2em 0;font-size:1em}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.5 system-ui,"Noto Sans Thai",sans-serif}
+#app{max-width:720px;margin:auto;padding:12px}h2{margin:.6em 0 .3em;font-size:1.15em}h3{margin:.2em 0;font-size:1em}
 .card{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:14px;margin:10px 0}
 .nav{display:flex;gap:6px;position:sticky;top:0;background:var(--bg);padding:6px 0;z-index:2}
 .b,.nav button{border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:12px;padding:8px 12px;font:inherit;cursor:pointer}
-.nav button{flex:1}
-.nav .on,.b.p{background:var(--ac);color:var(--oa);border-color:var(--ac)}
+.nav button{flex:1}.nav .on,.b.p{background:var(--ac);color:var(--oa);border-color:var(--ac)}
 input,select,textarea{font:inherit;color:var(--tx);background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:8px;max-width:100%}
-input[type=text],input[type=password]{width:100%;margin:4px 0}
-.row{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin:6px 0}
-.ch input{display:none}
-.ch span{display:inline-block;border:1px solid var(--bd);border-radius:20px;padding:5px 10px;cursor:pointer;margin:2px}
+input[type=text],input[type=password]{width:100%;margin:4px 0}.row{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin:6px 0}
+.ch input{display:none}.ch span{display:inline-block;border:1px solid var(--bd);border-radius:20px;padding:5px 10px;cursor:pointer;margin:2px}
 .ch input:checked+span{background:var(--ac);color:var(--oa);border-color:var(--ac)}
-.cal{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
-.cal .h{text-align:center;color:var(--mu);font-size:.8em}
+.cal{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}.cal .h{text-align:center;color:var(--mu);font-size:.8em}
 .d{aspect-ratio:1;border-radius:12px;border:2px solid transparent;background:var(--n);color:#1f2937;padding:3px;cursor:pointer;font-size:.85em;display:flex;flex-direction:column;justify-content:space-between;min-width:0}
-.d.e{visibility:hidden}
-.d.r{background:var(--r);color:#fff}
-.d.y{background:var(--y)}
-.d.g{background:var(--g);color:#fff}
-.d.t{border-color:var(--ac)}
-.k{display:flex;gap:6px;flex-wrap:wrap}
-.k div{flex:1;min-width:90px;text-align:center}
-.k b{display:block;font-size:1.5em}
-.mu{color:var(--mu);font-size:.85em}
-.bar{display:flex;align-items:center;gap:6px;margin:3px 0}
-.bar i{display:block;height:12px;background:var(--ac);border-radius:6px}
+.d.e{visibility:hidden}.d.r{background:var(--r);color:#fff}.d.y{background:var(--y)}.d.g{background:var(--g);color:#fff}.d.t{border-color:var(--ac)}
+.k{display:flex;gap:6px;flex-wrap:wrap}.k div{flex:1;min-width:90px;text-align:center}.k b{display:block;font-size:1.5em}
+.mu{color:var(--mu);font-size:.85em}.bar{display:flex;align-items:center;gap:6px;margin:3px 0}.bar i{display:block;height:12px;background:var(--ac);border-radius:6px}
 .ev{display:flex;justify-content:space-between;gap:8px;padding:6px 0;border-bottom:1px solid var(--bd)}
 .dot{display:inline-block;width:12px;height:12px;border-radius:4px;vertical-align:middle}
 #toast{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:#111;color:#fff;padding:8px 14px;border-radius:12px;display:none;z-index:9}
@@ -48,7 +31,7 @@ textarea{width:100%;margin:8px 0}
 html,body{width:100%;max-width:100%;overflow-x:hidden}
 #app{width:100%;min-width:0}
 .card,.row,.nav,.k,.ev{min-width:0}
-.cal{width:100%;min-width:0;grid-template-columns:repeat(7,minmax(0,1fr));gap:clamp(2px,1vw,5px)}
+.cal{width:100%;min-width:0;gap:clamp(2px,1vw,5px)}
 .cal>*{min-width:0}
 .d{width:100%;min-width:0;aspect-ratio:1;padding:clamp(2px,.7vw,5px);border-radius:clamp(6px,2vw,12px);overflow:hidden}
 .d b{font-size:clamp(11px,2.8vw,14px);line-height:1.2}
@@ -61,7 +44,6 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}
 .cal-head .b{white-space:nowrap}
 img,svg,canvas,table{max-width:100%}
 textarea,input,select,button{max-width:100%}
-
 @media(max-width:480px){
 #app{padding:8px}
 .card{padding:10px;margin:8px 0;border-radius:14px}
@@ -86,13 +68,16 @@ textarea,input,select,button{max-width:100%}
 .cal .h{font-size:9px}
 .d b{font-size:10px}
 }
-</style>
-</head>
-<body>
-<div id="app"></div>
-<div id="toast"></div>
+/* summary visuals */
+.sb{display:flex;height:28px;border-radius:14px;overflow:hidden;margin:8px 0}
+.sb i{display:flex;align-items:center;justify-content:center;font-style:normal;font-size:.8em;font-weight:600;min-width:20px}
+.tb{width:100%;border-collapse:collapse;font-size:.88em}
+.sc{max-height:340px;overflow:auto}
+.ef{display:flex;flex-direction:column;gap:6px;width:100%;padding:8px 0}
+.ef select,.ef input{width:100%}
+</style></head><body><div id="app"></div><div id="toast"></div>
 <script>
-// ตั้งค่า Google OAuth Client ID
+// ====== ตั้งค่า: ใส่ OAuth Client ID ของคุณที่นี่ (ไม่ใช่ความลับ) ======
 const CLIENT_ID='YOUR_CLIENT_ID.apps.googleusercontent.com';
 const K={drug:['Medication',['name','start','purpose','dose']],med:['Medication_Logs',['name','dose','status']],sym:['Symptom_Logs',['name','severity']],mood:['Mood_Logs',['mood','score','energy']],food:['Food_Logs',['meal','name']],day:['Daily_Summary',['status','summary']],cmood:['Mood_Categories',['name','emoji']]};
 const NUM=['severity','score','energy'],MOODS=[['😄','มีความสุข',5],['😌','สงบ',4],['🙂','ปกติ',3],['😴','เหนื่อย',2],['😰','กังวล',2],['😫','เครียด',2],['😢','เศร้า',1],['😠','หงุดหงิด',2]];
@@ -119,35 +104,63 @@ function changed(){S.dirty=1;save();render();clearTimeout(changed.t);if(tok||S.h
 function del(id){const r=S.recs.find(x=>x.id==id);r.deleted='1';r.updated_at=now();changed()}
 const dayRec=d=>S.recs.find(r=>r.id=='day-'+d&&!r.deleted)||S.recs.find(r=>r.kind=='day'&&r.date==d&&!r.deleted);
 function dayStatus(d){const o=dayRec(d);return o&&o.status?o.status:'n'}
-let V='cal',D=today(),M=[+today().slice(0,4),+today().slice(5,7)-1],R='sel',CR=[addD(today(),-29),today()];
-const go=(v,d)=>{V=v;if(d)D=d;render();scrollTo(0,0)};
+let V='cal',D=today(),M=[+today().slice(0,4),+today().slice(5,7)-1],R='sel',CR=[addD(today(),-29),today()],CD=today(),ED='';
+const go=(v,d)=>{V=v;if(d)D=d;ED='';render();scrollTo(0,0)};
 const moods=()=>[...MOODS.map(m=>[m[0],m[1]]),...L('cmood').map(x=>[x.emoji||'🙂',x.name])],pu=n=>{const p=(L('drug').find(x=>x.name==n)||{}).purpose;return p?` <span class=mu>(${esc(p)})</span>`:''};
 function evText(r){return r.kind=='med'?`💊 ${esc(r.name)} ${esc(r.dose)}${pu(r.name)} · ${esc(r.status)}`:r.kind=='sym'?`🤒 ${esc(r.name)} ระดับ ${r.severity}/5`:r.kind=='mood'?`${(moods().find(m=>m[1]==r.mood)||['🙂'])[0]} ${esc(r.mood)} ${r.score}/5 · พลังงาน ${r.energy}/5`:`🍚 ${esc(r.meal)}: ${esc(r.name)}`}
 const col={r:'var(--r)',y:'var(--y)',g:'var(--g)',n:'var(--n)'};
 function mpick(){const cy=+today().slice(0,4),ys=[cy-2,cy,M[0],...S.recs.map(r=>+String(r.date).slice(0,4)).filter(Boolean)],y0=Math.min(...ys),y1=Math.max(cy+1,M[0]);let o='';for(let y=y0;y<=y1;y++)o+=`<option value=${y} ${y==M[0]?'selected':''}>${y+543}</option>`;
 return`<span class=row style="margin:0"><select onchange="M[1]=+this.value;render()">${TH.map((t,i)=>`<option value=${i} ${i==M[1]?'selected':''}>${t}</option>`).join('')}</select><select onchange="M[0]=+this.value;render()">${o}</select><button class=b onclick="M=[+today().slice(0,4),+today().slice(5,7)-1];render()">เดือนนี้</button></span>`}
-function ovw(a,b){const In=k=>L(k).filter(r=>r.date>=a&&r.date<=b),sy=In('sym'),mo=In('mood'),md=In('med'),fd=In('food'),av=x=>x.reduce((s,v)=>s+v,0)/x.length,g={};
-sy.forEach(r=>{const x=g[r.name]=g[r.name]||{n:0,s:0,m:0,d:new Set()};x.n++;x.s+=r.severity;x.m=Math.max(x.m,r.severity);x.d.add(r.date)});
-const rows=Object.entries(g).sort((p,q)=>q[1].n-p[1].n).map(([k,x])=>`<tr><td>${esc(k)}</td><td>${x.n}</td><td>${x.d.size}</td><td>${(x.s/x.n).toFixed(1)}</td><td>${x.m}</td></tr>`).join('');
-const bd={};mo.forEach(r=>(bd[r.date]=bd[r.date]||[]).push(r.score));const dm=Object.entries(bd).map(([d,v])=>[d,av(v)]).sort((p,q)=>q[1]-p[1]);
-return`<div class=card><h3>ภาพรวมอาการและข้อมูล <span class=mu>${a} → ${b}</span></h3><div class=k><div><b>${new Set(sy.map(r=>r.date)).size}</b>วันที่มีอาการ</div><div><b>${sy.length}</b>ครั้งที่บันทึกอาการ</div><div><b>${sy.length?av(sy.map(r=>r.severity)).toFixed(1):'-'}</b>ความรุนแรงเฉลี่ย</div><div><b>${mo.length?av(mo.map(r=>r.score)).toFixed(1):'-'}</b>อารมณ์เฉลี่ย</div><div><b>${md.filter(r=>r.status=='กินแล้ว').length}</b>กินยา (ครั้ง)</div><div><b>${fd.length}</b>มื้ออาหาร</div></div>
-${rows?`<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;margin-top:8px"><tr class=mu><td>อาการ</td><td>ครั้ง</td><td>จำนวนวัน</td><td>รุนแรงเฉลี่ย</td><td>สูงสุด</td></tr>${rows}</table></div>`:'<p class=mu>ไม่มีอาการที่บันทึกในช่วงนี้</p>'}
-${dm.length?`<p class=mu>อารมณ์ดีที่สุด: ${dm[0][0]} (${dm[0][1].toFixed(1)}) · ต่ำสุด: ${dm.at(-1)[0]} (${dm.at(-1)[1].toFixed(1)})</p>`:''}</div>`}
+const fbar=p=>`<div class=row><select onchange="R=this.value;render()">${[['sel',p?'เลือกเดือน/ปี':'เดือนที่ปฏิทินแสดง'],['7','7 วันล่าสุด'],['day','เลือกเฉพาะวัน'],['cus','กำหนดช่วงวันที่'],['all','ทั้งหมด']].map(([v,t])=>`<option value=${v} ${R==v?'selected':''}>${t}</option>`).join('')}</select>${R=='sel'&&p?mpick():''}${R=='day'?`<input type=date value="${CD}" onchange="CD=this.value||CD;render()">`:''}${R=='cus'?`<input type=date value="${CR[0]}" onchange="CR[0]=this.value||CR[0];render()"><span>–</span><input type=date value="${CR[1]}" onchange="CR[1]=this.value||CR[1];render()">`:''}</div>`;
+const stk=a=>a.some(x=>x[0])?`<div class=sb>${a.map(([n,c])=>n?`<i style="flex:${n};background:${c};color:${c.includes('y')||c.includes('n')?'#1f2937':'#fff'}">${n}</i>`:'').join('')}</div><p class=mu>${a.map(([n,c,l])=>`<span class=dot style="background:${c}"></span> ${l} ${n}`).join(' · ')}</p>`:'<p class=mu>ยังไม่มีข้อมูลในช่วงนี้</p>';
+function report(a,b,full){if(a<'2000'){const ds=S.recs.filter(r=>!r.deleted&&r.date&&['med','sym','mood','food','day'].includes(r.kind)).map(r=>r.date).sort();a=ds[0]||addD(b,-29)}
+const e=b>today()?today():b,In=k=>L(k).filter(r=>r.date>=a&&r.date<=b),sy=In('sym'),mo=In('mood'),md=In('med'),fd=In('food'),av=x=>x.length?x.reduce((s,v)=>s+v,0)/x.length:0,cnt=(arr,k)=>arr.reduce((o,r)=>(o[r[k]]=(o[r[k]]||0)+1,o),{}),rows=[];
+for(let d=a;d<=e;d=addD(d,1)){const s=sy.filter(r=>r.date==d),m=mo.filter(r=>r.date==d),p=md.filter(r=>r.date==d);rows.push({d,st:dayStatus(d),tk:p.filter(r=>r.status=='กินแล้ว').length,ms:p.filter(r=>r.status!='กินแล้ว').length,sn:s.length,sx:s.length?Math.max(...s.map(r=>r.severity)):0,mv:m.length?av(m.map(r=>r.score)):null,fd:fd.filter(r=>r.date==d).length})}
+const has=x=>x.tk+x.ms+x.sn+x.fd>0||x.mv!=null,sc={g:0,y:0,r:0,p:0};rows.forEach(x=>{if(x.st!='n')sc[x.st]++;else if(has(x))sc.p++});
+let pts=rows;if(rows.length>62){pts=[];for(let i=0;i<rows.length;i+=7){const c=rows.slice(i,i+7),v=c.filter(x=>x.mv!=null).map(x=>x.mv);pts.push({d:c[0].d,sx:Math.max(...c.map(x=>x.sx)),mv:v.length?av(v):null})}}
+const H=110,bw=Math.max(2,Math.min(14,280/Math.max(pts.length,1)*.6)),X=i=>pts.length>1?14+i*282/(pts.length-1):150,Y=v=>H-10-v*(H-20)/5;
+const chart=pts.some(x=>x.sx||x.mv!=null)?`<svg viewBox="0 0 300 ${H}" width=100%>${[1,3,5].map(v=>`<line x1=14 x2=296 y1=${Y(v)} y2=${Y(v)} stroke="var(--bd)"/><text x=0 y=${Y(v)+3} font-size=8 fill="var(--mu)">${v}</text>`).join('')}${pts.map((x,i)=>x.sx?`<rect x=${X(i)-bw/2} y=${Y(x.sx)} width=${bw} height=${Y(0)-Y(x.sx)} rx=2 fill="var(--r)" opacity=.5 />`:'').join('')}<polyline fill=none stroke="var(--ac)" stroke-width=2.5 points="${pts.map((x,i)=>x.mv!=null?X(i)+','+Y(x.mv):'').filter(Boolean).join(' ')}"/>${pts.map((x,i)=>x.mv!=null?`<circle cx=${X(i)} cy=${Y(x.mv)} r=2.5 fill="var(--ac)"/>`:'').join('')}</svg><p class=mu>เส้นฟ้า = อารมณ์เฉลี่ย (1–5) · แท่งแดง = อาการที่หนักสุด (1–5)${rows.length>62?' · รายสัปดาห์':''} · ${pts[0].d} → ${pts.at(-1).d}</p>`:'<p class=mu>ยังไม่มีข้อมูลอาการหรืออารมณ์ในช่วงนี้</p>';
+const g={};sy.forEach(r=>{const x=g[r.name]=g[r.name]||{n:0,s:0,m:0,d:new Set()};x.n++;x.s+=r.severity;x.m=Math.max(x.m,r.severity);x.d.add(r.date)});
+const stbl=Object.entries(g).sort((p,q)=>q[1].n-p[1].n).map(([k,x])=>`<tr><td>${esc(k)}</td><td>${x.n}</td><td>${x.d.size}</td><td>${(x.s/x.n).toFixed(1)}</td><td>${x.m}</td></tr>`).join('');
+const dt=rows.filter(x=>has(x)||x.st!='n').reverse().map(x=>`<tr onclick="go('day','${x.d}')" style="cursor:pointer"><td>${x.d.slice(5)}</td><td><span class=dot style="background:${col[x.st]}"></span></td><td>${x.tk}${x.ms?` <span class=mu>(พลาด ${x.ms})</span>`:''}</td><td>${x.sn?x.sn+' ('+x.sx+'/5)':'-'}</td><td>${x.mv!=null?x.mv.toFixed(1):'-'}</td><td>${x.fd||'-'}</td></tr>`).join('');
+const k=(n,t)=>`<div><b>${n}</b>${t}</div>`,tk=md.filter(r=>r.status=='กินแล้ว').length,ls=md.filter(r=>r.status=='ลืมกิน').length,sk=md.filter(r=>r.status=='ข้าม').length;
+const full_=`<div class=card><h3>💊 การกินยา</h3>${stk([[tk,'var(--g)','กินแล้ว'],[ls,'var(--r)','ลืมกิน'],[sk,'var(--y)','ข้าม']])}${L('drug').length?`<div class=sc><table class=tb><tr class=mu><td>ยา</td><td>วันที่</td><td>กินแล้ว</td><td>ลืม/ข้าม</td></tr>${L('drug').map(x=>{const q=md.filter(r=>r.name==x.name);return`<tr><td><b>${esc(x.name)}</b>${x.purpose?`<br><span class=mu>${esc(x.purpose)}</span>`:''}</td><td>${Math.max(1,diff(x.start,today())+1)}</td><td>${q.filter(r=>r.status=='กินแล้ว').length}</td><td>${q.filter(r=>r.status!='กินแล้ว').length}</td></tr>`}).join('')}</table></div><p class=mu>วันที่ = นับจากวันเริ่มกินยาจนถึงวันนี้ · กินแล้ว/ลืม นับเฉพาะช่วงที่เลือก</p>`:'<p class=mu>เพิ่มยาและวันเริ่มกินในหน้าตั้งค่าเพื่อนับจำนวนวัน</p>'}</div>
+<div class=card><h3>🤒 อาการที่พบบ่อย</h3>${bars(cnt(sy,'name'))}<h3 style="margin-top:10px">ช่วงเวลาที่มีอาการ</h3>${bars(cnt(sy.map(r=>({h:per(r.time)})),'h'))}</div>
+<div class=card><h3>🙂 อารมณ์ที่พบบ่อย</h3>${bars(cnt(mo,'mood'))}</div>
+<div class=card><h3>🍚 อาหาร</h3>${bars(cnt(fd,'meal'))}</div>`;
+return`<div class=card><h3>ภาพรวม <span class=mu>${a} → ${b}</span></h3><div class=k>${k(new Set(sy.map(r=>r.date)).size,'วันที่มีอาการ')}${k(sy.length,'ครั้งที่มีอาการ')}${k(sy.length?av(sy.map(r=>r.severity)).toFixed(1):'-','รุนแรงเฉลี่ย')}${k(mo.length?av(mo.map(r=>r.score)).toFixed(1):'-','อารมณ์เฉลี่ย')}${k(tk,'กินยา (ครั้ง)')}${k(fd.length,'มื้ออาหาร')}</div></div>
+<div class=card><h3>สีของแต่ละวัน</h3>${stk([[sc.g,'var(--g)','ปกติ'],[sc.y,'var(--y)','ปานกลาง'],[sc.r,'var(--r)','แย่'],[sc.p,'var(--n)','ยังไม่สรุป']])}</div>
+<div class=card><h3>แนวโน้มอารมณ์และอาการ</h3>${chart}</div>
+${full?full_:''}
+<div class=card><h3>ตารางอาการ</h3>${stbl?`<div class=sc><table class=tb><tr class=mu><td>อาการ</td><td>ครั้ง</td><td>จำนวนวัน</td><td>รุนแรงเฉลี่ย</td><td>สูงสุด</td></tr>${stbl}</table></div>`:'<p class=mu>ไม่มีอาการที่บันทึกในช่วงนี้</p>'}</div>
+<div class=card><h3>ตารางรายวัน <span class=mu>(กดแถวเพื่อเปิดวันนั้น)</span></h3>${dt?`<div class=sc><table class=tb><tr class=mu><td>วันที่</td><td>สี</td><td>กินยา</td><td>อาการ</td><td>อารมณ์</td><td>มื้อ</td></tr>${dt}</table></div>`:'<p class=mu>ยังไม่มีข้อมูลในช่วงนี้</p>'}</div>`}
 function cal(){const[y,m]=M,f=new Date(Date.UTC(y,m,1)).getUTCDay(),n=new Date(Date.UTC(y,m+1,0)).getUTCDate();let c=WD.map(w=>`<div class=h>${w}</div>`).join('')+'<div class="d e"></div>'.repeat(f),cnt={r:0,y:0,g:0,n:0},doses=0,dd=0,pend=0;
 for(let i=1;i<=n;i++){const d=`${y}-${String(m+1).padStart(2,'0')}-${String(i).padStart(2,'0')}`,s=dayStatus(d);cnt[s]++;const hs=['med','sym','mood','food'].some(k=>L(k).some(r=>r.date==d));if(hs||s!='n')dd++;if(hs&&s=='n')pend++;
 const md=L('med').filter(r=>r.date==d),sy=L('sym').some(r=>r.date==d);doses+=md.filter(r=>r.status=='กินแล้ว').length;
 c+=`<div class="d ${s} ${d==today()?'t':''}" onclick="go('day','${d}')"><b>${i}</b><span>${md.length?'💊':''}${sy?'🤒':''}</span></div>`}
 return`<div class=card><div class="row cal-head"><button class=b onclick="mv(-1)" aria-label="เดือนก่อนหน้า">‹</button>${mpick()}<button class=b onclick="mv(1)" aria-label="เดือนถัดไป">›</button></div><div class=cal>${c}</div></div>
 <div class=card><div class=k><div><b>${dd}</b>วันที่มีข้อมูล</div><div><b style="color:var(--g)">${cnt.g}</b>วันปกติ</div><div><b style="color:#CA8A04">${cnt.y}</b>ปานกลาง</div><div><b style="color:var(--r)">${cnt.r}</b>วันแย่</div><div><b>${doses}</b>ครั้งที่กินยา</div><div><b>${pend}</b>ยังไม่สรุปสี</div></div>
-<p class=mu><span class=dot style="background:var(--r)"></span> แย่ <span class=dot style="background:var(--y)"></span> ปานกลาง <span class=dot style="background:var(--g)"></span> ปกติ <span class=dot style="background:var(--n)"></span> ไม่มีข้อมูล · สีมาจากที่คุณสรุปแต่ละวัน วันที่มีบันทึกแต่ยังไม่สรุปจะเป็นสีเทา</p></div>${ovw(`${y}-${String(m+1).padStart(2,'0')}-01`,`${y}-${String(m+1).padStart(2,'0')}-${String(n).padStart(2,'0')}`)}`}
+<p class=mu><span class=dot style="background:var(--r)"></span> แย่ <span class=dot style="background:var(--y)"></span> ปานกลาง <span class=dot style="background:var(--g)"></span> ปกติ <span class=dot style="background:var(--n)"></span> ไม่มีข้อมูล · สีมาจากที่คุณสรุปแต่ละวัน วันที่มีบันทึกแต่ยังไม่สรุปจะเป็นสีเทา</p></div><div class=card>${fbar(0)}</div>${report(...rng(),0)}`}
 function mv(n){M[1]+=n;if(M[1]<0){M[1]=11;M[0]--}if(M[1]>11){M[1]=0;M[0]++}render()}
 const per=t=>{const h=+String(t||'0').split(':')[0];return h>=5&&h<12?'เช้า':h>=12&&h<17?'กลางวัน':h>=17&&h<21?'เย็น':'ดึก'};
-function dayOv(ev,cur,o){const g=k=>ev.filter(r=>r.kind==k),md=g('med'),sy=g('sym'),mo=g('mood'),fd=g('food'),mx=sy.length?Math.max(...sy.map(r=>r.severity)):0,av=mo.length?(mo.reduce((s,r)=>s+r.score,0)/mo.length).toFixed(1):'-';
-const grp=['เช้า','กลางวัน','เย็น','ดึก'].map(p=>{const e=ev.filter(r=>per(r.time)==p);return e.length?`<div class=mu style="margin-top:8px"><b>${p}</b></div>`+e.map(r=>`<div class=ev><span><b>${r.time||''}</b> ${evText(r)}</span><button class=b onclick="del('${r.id}')">ลบ</button></div>`).join(''):''}).join('')||'<p class=mu>ยังไม่มีบันทึกในวันนี้ — เพิ่มได้จากฟอร์มด้านล่าง</p>';
-return`<div class=card><h3>สรุปทั้งวัน</h3><div class=k><div><b>${md.filter(r=>r.status=='กินแล้ว').length}</b>ครั้งที่กินยา</div><div><b>${md.filter(r=>r.status!='กินแล้ว').length}</b>ลืม/ข้าม</div><div><b>${sy.length}</b>ครั้งที่มีอาการ${mx?`<br><span class=mu>หนักสุด ${mx}/5</span>`:''}</div><div><b>${av}</b>อารมณ์เฉลี่ย</div><div><b>${fd.length}</b>มื้ออาหาร</div></div>
-${grp}
+function edForm(r){const sel=(n,arr,v)=>`<select name=${n}>${arr.map(x=>`<option ${x==v?'selected':''}>${esc(x)}</option>`).join('')}</select>`,num=(n,v)=>sel(n,[1,2,3,4,5],v);
+let h=`<div class=row><input type=date name=date value="${esc(r.date)}"><input type=time name=time value="${esc(r.time)}"></div>`;
+if(r.kind=='med')h+=`<input type=text name=name value="${esc(r.name)}" placeholder="ชื่อยา"><input type=text name=dose value="${esc(r.dose)}" placeholder="ขนาด">`+sel('status',MS,r.status);
+if(r.kind=='sym')h+=`<input type=text name=name value="${esc(r.name)}" placeholder="อาการ"><span class=mu>ความรุนแรง (1–5)</span>`+num('severity',r.severity);
+if(r.kind=='mood')h+=sel('mood',[...new Set([r.mood,...moods().map(m=>m[1])])],r.mood)+`<span class=mu>คะแนนอารมณ์ (1–5)</span>`+num('score',r.score)+`<span class=mu>พลังงาน (1–5)</span>`+num('energy',r.energy);
+if(r.kind=='food')h+=sel('meal',MEALS,r.meal)+`<input type=text name=name value="${esc(r.name)}" placeholder="กินอะไร">`;
+return`<form class=ef onsubmit="return saveEd('${r.id}',this)"><b>แก้ไขรายการ</b>${h}<div class=row><button class="b p">บันทึกการแก้ไข</button><button type=button class=b onclick="ED='';render()">ยกเลิก</button></div></form>`}
+function saveEd(id,fm){const r=S.recs.find(x=>x.id==id),d=Object.fromEntries(new FormData(fm));if(!r)return false;if(!d.date||!d.time){toast('กรุณาเลือกวันที่และเวลา');return false}
+if(d.name!==undefined){d.name=d.name.trim();if(!d.name){toast('กรอกชื่อด้วย');return false}}
+NUM.forEach(k=>{if(d[k]!==undefined)d[k]=+d[k]});Object.assign(r,d,{updated_at:now()});ED='';changed();toast(d.date!=D?'แก้ไขแล้ว (ย้ายไปวันที่ '+d.date+')':'แก้ไขแล้ว');return false}
+function dayOv(ev,cur,o){const g=k=>ev.filter(r=>r.kind==k),md=g('med'),sy=g('sym'),mo=g('mood'),fd=g('food'),P=['เช้า','กลางวัน','เย็น','ดึก'],mx=sy.length?Math.max(...sy.map(r=>r.severity)):0,av=mo.length?(mo.reduce((s,r)=>s+r.score,0)/mo.length).toFixed(1):'-';
+const pr=P.map(p=>{const e=ev.filter(r=>per(r.time)==p),m=e.filter(r=>r.kind=='mood'),s=e.filter(r=>r.kind=='sym');return e.length?`<tr><td>${p}</td><td>${e.filter(r=>r.kind=='med'&&r.status=='กินแล้ว').length}</td><td>${s.length?s.length+' (หนักสุด '+Math.max(...s.map(r=>r.severity))+'/5)':'-'}</td><td>${m.length?(m.reduce((t,r)=>t+r.score,0)/m.length).toFixed(1):'-'}</td><td>${e.filter(r=>r.kind=='food').length||'-'}</td></tr>`:''}).join('');
+const grp=P.map(p=>{const e=ev.filter(r=>per(r.time)==p);return e.length?`<div class=mu style="margin-top:8px"><b>${p}</b></div>`+e.map(r=>r.id==ED?`<div class=ev style="display:block">${edForm(r)}</div>`:`<div class=ev><span><b>${r.time||''}</b> ${evText(r)}</span><span style="white-space:nowrap"><button class=b onclick="ED='${r.id}';render()">แก้ไข</button> <button class=b onclick="del('${r.id}')">ลบ</button></span></div>`).join(''):''}).join('')||'<p class=mu>ยังไม่มีบันทึกในวันนี้ — เพิ่มได้จากฟอร์มด้านล่าง</p>';
+return`<div class=card><h3>สรุปภาพรวมของวัน</h3><div class=k><div><b>${md.filter(r=>r.status=='กินแล้ว').length}</b>ครั้งที่กินยา</div><div><b>${md.filter(r=>r.status!='กินแล้ว').length}</b>ลืม/ข้าม</div><div><b>${sy.length}</b>ครั้งที่มีอาการ${mx?`<br><span class=mu>หนักสุด ${mx}/5</span>`:''}</div><div><b>${av}</b>อารมณ์เฉลี่ย</div><div><b>${fd.length}</b>มื้ออาหาร</div></div>
+${pr?`<div class=sc><table class=tb><tr class=mu><td>ช่วง</td><td>💊 กินแล้ว</td><td>🤒 อาการ</td><td>🙂 อารมณ์</td><td>🍚 มื้อ</td></tr>${pr}</table></div>`:''}
 <h3 style="margin-top:14px">สีของวันนี้ <span class=dot style="background:${col[dayStatus(D)]}"></span></h3><div class=row>${[['','⚪ ยังไม่สรุป'],['g','🟢 ปกติ'],['y','🟡 ปานกลาง'],['r','🔴 แย่']].map(([v,t])=>`<button class="b ${cur==v?'p':''}" onclick="setDay('${v}')">${t}</button>`).join('')}</div>
-<textarea id=sm rows=3 placeholder="สรุปทั้งวัน เช่น เช้ารู้สึกดี บ่ายปวดหัวหลังกินยา เย็นดีขึ้น">${esc(o&&o.summary||'')}</textarea><button class="b p" onclick="saveSum()">บันทึกสรุปวัน</button></div>`}
+<textarea id=sm rows=3 placeholder="สรุปทั้งวัน เช่น เช้ารู้สึกดี บ่ายปวดหัวหลังกินยา เย็นดีขึ้น">${esc(o&&o.summary||'')}</textarea><button class="b p" onclick="saveSum()">บันทึกสรุปวัน</button></div>
+<div class=card><h3>รายการที่บันทึก <span class=mu>(แก้ไขหรือลบได้)</span></h3>${grp}</div>`}
 function day(){const ev=S.recs.filter(r=>!r.deleted&&r.date==D&&['med','sym','mood','food'].includes(r.kind)).sort((a,b)=>(a.time||'').localeCompare(b.time||'')),o=dayRec(D),cur=o&&o.status||'';
 const chips=(nm,arr,req)=>arr.map(x=>`<label class=ch><input type=radio name=${nm} value="${x}" ${req?'required':''}><span>${x}</span></label>`).join(''),sc=nm=>[1,2,3,4,5].map(x=>`<label class=ch><input type=radio name=${nm} value=${x} ${nm=='severity'?'required':''}><span>${x}</span></label>`).join('');
 return`<button class=b onclick="go('cal')">← ปฏิทิน</button><h2>${D}</h2>
@@ -169,21 +182,9 @@ if(k=='sym'){const n=(d.custom||d.sym||'').trim();if(!n){toast('เลือก�
 if(k=='mood')Object.assign(o,{mood:d.mood,score:+d.score,energy:+d.energy});
 if(k=='food')Object.assign(o,{meal:d.meal,name:d.name.trim()});
 add(k,o);toast('บันทึกแล้ว');return false}
-function rng(){const t=today();if(R=='7')return[addD(t,-6),t];if(R=='sel'){const[y,m]=M;return[`${y}-${String(m+1).padStart(2,'0')}-01`,new Date(Date.UTC(y,m+1,0)).toISOString().slice(0,10)]}if(R=='cus')return CR;return['0000-01-01',t]}
+function rng(){const t=today();if(R=='7')return[addD(t,-6),t];if(R=='sel'){const[y,m]=M;return[`${y}-${String(m+1).padStart(2,'0')}-01`,new Date(Date.UTC(y,m+1,0)).toISOString().slice(0,10)]}if(R=='day')return[CD,CD];if(R=='cus')return CR;return['0000-01-01',t]}
 const bars=(o,fmt=v=>v)=>{const mx=Math.max(1,...Object.values(o));return Object.entries(o).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`<div class=bar><span style="min-width:90px">${esc(k)}</span><i style="width:${v/mx*60}%"></i>${fmt(v)}</div>`).join('')||'<p class=mu>ไม่มีข้อมูลในช่วงนี้</p>'};
-function dash(){const[a,b]=rng(),In=k=>L(k).filter(r=>r.date>=a&&r.date<=b),cnt=(arr,key)=>arr.reduce((o,r)=>(o[r[key]]=(o[r[key]]||0)+1,o),{}),
-md=In('med'),sy=In('sym'),mo=In('mood'),avg=mo.length?(mo.reduce((s,r)=>s+r.score,0)/mo.length).toFixed(1):'-';
-const byD={};mo.forEach(r=>(byD[r.date]=byD[r.date]||[]).push(r.score));const ds=Object.keys(byD).sort(),pts=ds.map((d,i)=>`${ds.length>1?i/(ds.length-1)*280+10:150},${70-(byD[d].reduce((s,x)=>s+x,0)/byD[d].length-1)*15}`).join(' ');
-const st={r:0,y:0,g:0};for(let d=a<'2000'?addD(b,-60):a;d<=b;d=addD(d,1)){const s=dayStatus(d);if(st[s]!=null)st[s]++}
-const hr=cnt(sy.map(r=>({h:(+(r.time||'0:0').split(':')[0]<6?'00-06':+r.time.split(':')[0]<12?'06-12':+r.time.split(':')[0]<18?'12-18':'18-24')})),'h');
-return`<div class=card><div class=row><select onchange="R=this.value;render()">${[['sel','เลือกเดือน/ปี'],['7','7 วันล่าสุด'],['cus','กำหนดช่วงวันที่'],['all','ทั้งหมด']].map(([v,t])=>`<option value=${v} ${R==v?'selected':''}>${t}</option>`).join('')}</select>${R=='sel'?mpick():''}${R=='cus'?`<input type=date value="${CR[0]}" onchange="CR[0]=this.value||CR[0];render()"><span>–</span><input type=date value="${CR[1]}" onchange="CR[1]=this.value||CR[1];render()">`:''}</div></div>
-${ovw(a,b)}
-<div class=card><h3>💊 ยา</h3><div class=k><div><b>${md.filter(r=>r.status=='กินแล้ว').length}</b>กินแล้ว</div><div><b>${md.filter(r=>r.status=='ลืมกิน').length}</b>ลืมกิน</div><div><b>${md.filter(r=>r.status=='ข้าม').length}</b>ข้าม</div></div>
-${L('drug').map(x=>`<div class=ev><span><b>${esc(x.name)}</b> <span class=mu>เริ่ม ${esc(x.start)}${x.purpose?' · กินเพื่อ '+esc(x.purpose):''}</span></span><span>วันที่ <b>${Math.max(1,diff(x.start,today())+1)}</b> · กินแล้ว ${L('med').filter(r=>r.name==x.name&&r.status=='กินแล้ว').length} ครั้ง</span></div>`).join('')||'<p class=mu>เพิ่มยาและวันเริ่มกินในหน้าตั้งค่าเพื่อนับจำนวนวัน</p>'}</div>
-<div class=card><h3>ภาพรวมสีรายวัน</h3><div class=k><div><b style="color:var(--g)">${st.g}</b>ปกติ</div><div><b style="color:#CA8A04">${st.y}</b>ปานกลาง</div><div><b style="color:var(--r)">${st.r}</b>แย่</div></div></div>
-<div class=card><h3>🤒 อาการที่พบบ่อย</h3>${bars(cnt(sy,'name'))}<h3>ช่วงเวลาที่มีอาการ</h3>${bars(hr)}</div>
-<div class=card><h3>🙂 อารมณ์ (เฉลี่ย ${avg}/5)</h3>${ds.length?`<svg viewBox="0 0 300 80" width=100%><polyline fill=none stroke="var(--ac)" stroke-width=3 points="${pts}"/></svg><div class=mu>แนวโน้มคะแนนอารมณ์รายวัน ${ds[0]} → ${ds.at(-1)}</div>`:''}${bars(cnt(mo,'mood'))}</div>
-<div class=card><h3>🍚 อาหาร</h3><div class=k><div><b>${In('food').length}</b>มื้อที่บันทึก</div></div>${bars(cnt(In('food'),'meal'))}</div>`}
+function dash(){const[a,b]=rng();return`<div class=card>${fbar(1)}</div>${report(a,b,1)}`}
 function sett(){return`<div class=card><h3>รายการยา</h3>${L('drug').map(x=>`<div class=ev><span><b>${esc(x.name)}</b> ${esc(x.dose)} · เริ่ม ${esc(x.start)}${x.purpose?'<br><span class=mu>กินเพื่อ: '+esc(x.purpose)+'</span>':''}</span><button class=b onclick="del('${x.id}')">ลบ</button></div>`).join('')}
 <form onsubmit="const d=Object.fromEntries(new FormData(this));add('drug',{date:today(),time:'',name:d.name.trim(),start:d.start,purpose:d.purpose.trim(),dose:d.dose.trim()});return false"><input type=text name=name placeholder="ชื่อยา" required><input type=text name=dose placeholder="ขนาดปกติ เช่น 1 เม็ด"><input type=text name=purpose placeholder="กินเพื่ออะไร เช่น แก้ปวดหัว"><div class=row><span class=mu>วันเริ่มกิน</span><input type=date name=start value="${today()}" required><button class="b p">เพิ่มยา</button></div></form></div>
 <div class=card><h3>อารมณ์ที่เพิ่มเอง</h3>${L('cmood').map(x=>`<div class=ev><span>${esc(x.emoji)} ${esc(x.name)}</span><button class=b onclick="del('${x.id}')">ลบ</button></div>`).join('')||'<p class=mu>เพิ่มได้ในหน้าบันทึกรายวัน ตรงส่วนอารมณ์</p>'}</div>
@@ -193,8 +194,7 @@ function sett(){return`<div class=card><h3>รายการยา</h3>${L('dru
 <div class=card><h3>ข้อมูล</h3><p class=mu>เขตเวลา: Asia/Bangkok</p>${hasSample()?'<button class=b onclick="S.recs=S.recs.filter(r=>!String(r.id).startsWith(\'s-\'));changed()">ลบข้อมูลตัวอย่างทั้งหมด</button>':''}</div>`}
 function csv(){const rows=[['kind','id','date','time','detail','notes','updated_at','deleted']];real().forEach(r=>rows.push([r.kind,r.id,r.date,r.time,K[r.kind][1].map(c=>r[c]).join(' | '),r.notes,r.updated_at,r.deleted]));
 const a=document.createElement('a');a.href=URL.createObjectURL(new Blob(['\ufeff'+rows.map(r=>r.map(c=>`"${String(c??'').replace(/"/g,'""')}"`).join(',')).join('\n')],{type:'text/csv'}));a.download='health-tracker.csv';a.click()}
-
-// Google Sheets Sync
+// ====== Google Sheets sync ======
 let tok='',busy=0;
 function auth(){return new Promise((ok,no)=>{const go=()=>google.accounts.oauth2.initTokenClient({client_id:CLIENT_ID,scope:'https://www.googleapis.com/auth/drive.file',error_callback:e=>no(new Error(e.type||'ปิดหน้าต่างล็อกอิน')),callback:r=>r.access_token?(tok=r.access_token,ok()):no(new Error(r.error||'auth'))}).requestAccessToken();
 if(window.google&&google.accounts)return go();const s=document.createElement('script');s.src='https://accounts.google.com/gsi/client';s.onload=go;s.onerror=()=>no(new Error('โหลด Google ไม่ได้ (ต้องเปิดผ่าน GitHub Pages/https)'));document.head.appendChild(s)})}
@@ -225,6 +225,4 @@ ${hasSample()?'<div class=card style="border-color:var(--y)">⚠️ กำลั
 ${V=='cal'?cal():V=='day'?day():V=='dash'?dash():sett()}
 <p class=mu style="text-align:center">แสดงเฉพาะข้อมูลที่บันทึก ไม่ใช่การวินิจฉัยทางการแพทย์ ${S.st?' · '+esc(S.st):''}</p>`}
 render();if(S.hook)sync();
-</script>
-</body>
-</html>
+</script></body></html>
